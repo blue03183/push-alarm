@@ -7,7 +7,7 @@ const expo = new Expo();
 const savedPushTokens = [];
 const PORT_NUMBER = 3000;
 
-const saveToken = () => {
+const saveToken = (token) => {
   if (savedPushTokens.indexOf(token) === -1) {
     savedPushTokens.push(token);
   }
@@ -15,8 +15,7 @@ const saveToken = () => {
 
 const handlePushTokens = (message) => {
   let notifications = [];
-  console.log('savedPushTokens');
-console.log(savedPushTokens);
+
   for (let pushToken of savedPushTokens) {
     if (!Expo.isExpoPushToken(pushToken)) {
       console.log('에러');

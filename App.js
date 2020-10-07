@@ -16,10 +16,8 @@ export default function App() {
   });
 
   const registerForPushNotificationsAsync = async () => {
-    console.log('111');
-    const { status } = await Premissions.askAsync(Permissions.NOTIFICATIONS);
+    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
 
-    console.log('222');
     if (status !== 'granted') {
       return;
     }
@@ -62,7 +60,7 @@ export default function App() {
     <View style={styles.container}>
       <TextInput
         value={state.messageText}
-        onChangeText={handleNotification}
+        onChangeText={handleChangeText}
         style={styles.textInput}
       />
 
